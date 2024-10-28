@@ -5,6 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+// Models
+use App\Models\Comic;
+
 class ComicSeeder extends Seeder
 {
     /**
@@ -12,6 +15,26 @@ class ComicSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Comic::truncate();
+
+        $comics = config('comics');
+        
+        foreach ($comics as $singleComic){
+            $comic = new Comic();
+            $comic->title = $singleComic['title'];
+            $comic->description = $singleComic['description'];
+            $comic->thumb = $singleComic['thumb'];
+            $comic->price = $singleComic['price'];
+            $priceNumber = floatval(substr($singleComic['price'], 1));
+            $comic->series = $priceNumber;
+            $comic->sale_date = $singleComic['sale_date'];
+            $comic->type = $singleComic['type'];
+            $jsonArtists = json_encode($singleComic['artists']);
+            $comic->artists = $jsonArtists;
+            $jsonWriters = json_encode($singleComic['writers']);
+            $comic->writers = $jsonWriters;
+            $comic-> save();
+            
+        }
     }
 }
