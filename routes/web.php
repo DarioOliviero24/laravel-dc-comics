@@ -6,17 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ComicController;
 
 Route::get('/', function () {
-    
-    $firstName = 'Gino';
-    $lastName = 'Paoli';
 
-   
-
-    return view('welcome', [
-        'firstName' => $firstName,
-        'lastName' => $lastName,
-    ]);
-   
+    return redirect()->route('comics.index');
 });
 
 Route::get('/chi-siamo', function () {

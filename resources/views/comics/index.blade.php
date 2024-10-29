@@ -19,18 +19,13 @@
     </tr>
   </thead>
   <tbody>
-
-    @php
-    dd($comics);
-    @php
-
     @foreach ($comics as $comic)
         <tr>
             <th scope="row">{{ $comic->id}}</th>
             <td>{{ $comic->title}}</td>
             <td>{{ $comic->series}}</td>
             <td>{{ $comic->type}}</td>
-            <td>$ {{ number_format($comic->price, 2, ',', '.')}}</td>
+            <td>{{ $comic->price }}</td>
         </tr>
     @endforeach
   </tbody>

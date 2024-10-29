@@ -18,15 +18,14 @@ class ComicSeeder extends Seeder
         Comic::truncate();
 
         $comics = config('comics');
-        
+
         foreach ($comics as $singleComic){
             $comic = new Comic();
             $comic->title = $singleComic['title'];
             $comic->description = $singleComic['description'];
             $comic->thumb = $singleComic['thumb'];
             $comic->price = $singleComic['price'];
-            $priceNumber = floatval(substr($singleComic['price'], 1));
-            $comic->series = $priceNumber;
+            $comic->series = $singleComic['series'];
             $comic->sale_date = $singleComic['sale_date'];
             $comic->type = $singleComic['type'];
             $jsonArtists = json_encode($singleComic['artists']);
@@ -34,7 +33,7 @@ class ComicSeeder extends Seeder
             $jsonWriters = json_encode($singleComic['writers']);
             $comic->writers = $jsonWriters;
             $comic-> save();
-            
+
         }
     }
 }
