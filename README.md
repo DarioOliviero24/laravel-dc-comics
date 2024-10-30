@@ -39,3 +39,12 @@ Bonus
 tramite javascript, quando l'utente clicca sul pulsante "delete", chiedere conferma della cancellazione, prima di eliminare l'elemento.
 
 
+# Laravel DC Comics 24 ottobre
+
+1. sempre lavorando sulla repo di ieri, potete aggiungere le validazioni in modo da rendere più stabile il vostro gestionale di fumetti.
+
+
+Bonus:
+- validare gli input ricevuti in fase di creazione e modifica, rispondendo con errori chiari e in italiano.
+
+
